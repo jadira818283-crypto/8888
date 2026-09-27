@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8-сынып Информатика (1-4 бөлімдер) — Онлайн Тренaжер</title>
+<style>
+:root{--ink:#17324d;--muted:#60758a;--blue:#2563eb;--cyan:#06b6d4;--green:#16a34a;--red:#dc2626;--paper:#fff;--bg:#eef5fb;--line:#d8e4ef}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#eaf6ff,#f8fbff 45%,#eafbf8);line-height:1.55}
+button,input,select{font:inherit}.hero{padding:35px 20px 25px;background:linear-gradient(120deg,#0f4c81,#2563eb 55%,#06b6d4);color:white}.hero-inner,.wrap{max-width:1000px;margin:auto}.eyebrow{font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(24px,4vw,38px);line-height:1.1;margin:8px 0}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.pill{background:#ffffff20;border:1px solid #ffffff40;padding:6px 12px;border-radius:999px;font-size:13px}
+.wrap{padding:22px 16px 60px}.nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;background:#f8fbfff2;backdrop-filter:blur(10px);border:1px solid var(--line);padding:8px;border-radius:16px;margin-bottom:20px;box-shadow:0 8px 25px #17324d12}.nav button{border:0;background:transparent;color:var(--muted);padding:10px 16px;border-radius:11px;font-weight:750;cursor:pointer}.nav button.active{background:var(--blue);color:#fff}.panel{display:none}.panel.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 30px #17324d0a}.card h2{margin:0 0 10px;line-height:1.25;font-size:20px}.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#dbeafe;color:#1d4ed8;margin-right:7px;font-weight:900;font-size:14px}.rule{background:#eff6ff;border-left:4px solid var(--blue);padding:10px 12px;border-radius:8px;margin:10px 0;font-size:14px}.formula{background:#112d45;color:#e8f8ff;border-radius:10px;padding:10px 14px;font:700 14px Consolas,monospace;margin:10px 0}.rule-list{padding-left:18px;margin:8px 0;font-size:14px}.rule-list li{margin:4px 0}.motivation{margin:10px 0;padding:12px;border-radius:12px;background:linear-gradient(110deg,#fef3c7,#dcfce7);border:1px solid #facc15;color:#854d0e;font-weight:800;text-align:center}
+.topic-select{width:100%;padding:12px;border-radius:12px;border:2px solid var(--blue);margin-bottom:18px;background:white;font-weight:700;color:var(--ink);cursor:pointer}
+.test-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.progress{height:10px;background:#dfeaf2;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:.25s}.question{margin:14px 0}.qtop{display:flex;justify-content:space-between;gap:12px}.topic{font-size:12px;color:#0e7490;background:#ecfeff;padding:4px 9px;border-radius:999px;white-space:nowrap}.question h3{font-size:16px;margin:8px 0 12px}.answers{display:grid;gap:8px}.answer{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:.15s}.answer:hover{border-color:#93b8ea;background:#f8fbff}.answer:has(input:checked){border-color:var(--blue);background:#eff6ff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:white;color:var(--blue);border:1px solid #93b8ea}.result{display:none;text-align:center}.result.show{display:block}.score{font-size:52px;font-weight:900;color:var(--blue);line-height:1}.badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#dcfce7;color:#166534;font-weight:800}
+.login-overlay{position:fixed;inset:0;z-index:99;background:#fff;display:grid;place-items:center;padding:18px}.login-box{width:min(400px,100%);background:white;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 55px #17324d24}.login-box label{display:block;font-weight:800;margin:12px 0 5px;font-size:14px}.login-box input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px}
+</style>
+</head>
+<body>
+
+<section class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <div class="eyebrow" style="color:var(--blue)">8-сынып Информатика</div>
+    <h2 style="margin:5px 0">Оқушы ретінде кіру</h2>
+    <label for="studentName">Аты-жөніңіз:</label>
+    <input id="studentName" placeholder="Мысалы: Арман Әлібекұлы">
+    <button class="btn primary" id="studentLogin" style="width:100%;margin-top:15px">Бастау</button>
+  </div>
+</section>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">8-сынып • 1-4 Бөлімдер</div>
+    <h1>Информатика: Теориялық жинақ және Тест</h1>
+    <div class="stats">
+      <span class="pill">4 Тақырыптық Бөлім</span>
+      <span class="pill">Әр бөлімде 30 сұрақ</span>
+      <span class="pill">Барлығы 120 сұрақ</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="nav">
+    <button class="active" data-tab="theory">📘 Теориялық жинақ</button>
+    <button data-tab="test">✅ Онлайн тест тапсыру</button>
+    <button data-tab="result">🏆 Нәтиже</button>
+  </nav>
+
+  <!-- ТЕОРИЯ БӨЛІМІ -->
+  <section id="theory" class="panel active">
+    <div class="motivation">🌟 Тест тапсырмас бұрын әр бөлімнің негізгі ережелерін оқып шығыңыз!</div>
+    
+    <div class="grid">
+      <article class="card">
+        <h2><span class="num">1</span>Компьютерлік жүйелер мен БҚ</h2>
+        <p><b>Бағдарламалық қамтамасыз ету (БҚ)</b> — компьютерде ақпаратты өңдеуге арналған барлық бағдарламалар жиынтығы.</p>
+        <ul class="rule-list">
+          <li><b>Жүйелік БҚ:</b> Операциялық жүйелер (Windows, Linux), утилиталар, драйверлер.</li>
+          <li><b>Қолданбалы БҚ:</b> Мәтіндік редакторлар, браузерлер, графикалық редакторлар.</li>
+        </ul>
+        <div class="rule"><b>Анықтама:</b> Драйвер — құрылғыларды операциялық жүйемен байланыстыратын арнайы бағдарлама.</div>
+      </article>
+
+      <article class="card">
+        <h2><span class="num">2</span>Компьютерлік желілер мен қауіпсіздік</h2>
+        <ul class="rule-list">
+          <li><b>IP-мекенжай:</b> Желідегі әр компьютердің бірегей сандық мекенжайы.</li>
+          <li><b>DNS:</b> Сандық IP-ді адамға түсінікті домендік атауға (google.com) айналдырады.</li>
+          <li><b>Брандмауэр (Firewall):</b> Сұраусыз кіруден және рұқсатсыз байланыстардан қорғайтын желілік экран.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2><span class="num">3</span>Деректер базасы (MS Access)</h2>
+        <p><b>Реляциялық ДБ:</b> Деректерді өзара байланысты кестелер түрінде сақтайды.</p>
+        <ul class="rule-list">
+          <li><b>Өріс (Field):</b> Кестенің бағаны (деректер типі беріледі: Text, Number, Date/Time, Yes/No).</li>
+          <li><b>Жазба (Record):</b> Кестенің жолы (нақты бір объект туралы толық ақпарат).</li>
+          <li><b>Кілттік өріс (Primary Key):</b> Кестедегі әр жазбаны бірегей түрде анықтайтын баған.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2><span class="num">4</span>Алгоритмдеу және Python</h2>
+        <div class="formula">for i in range(1, 5):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i) # 1 2 3 4 шығады</div>
+        <ul class="rule-list">
+          <li><b>Шартты оператор:</b> `if ... elif ... else` — тармақталуды іске асырады.</li>
+          <li><b>Параметрлі цикл (`for`):</b> Қайталану саны белгілі болғанда.</li>
+          <li><b>Шартты цикл (`while`):</b> Шарт ақиқат (`True`) болғанда қайталанады.</li>
+          <li><b>Басқару:</b> `break` — циклді тоқтатады, `continue` — келесі қадамға өтеді.</li>
+          <li><b>Тізім әдісі:</b> `append()` — соңына жаңа элемент қосады.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ТЕСТ БӨЛІМІ -->
+  <section id="test" class="panel">
+    <div class="card">
+      <h2>Тақырыпты таңдаңыз:</h2>
+      <select id="topicSelect" class="topic-select">
+        <option value="1">1-бөлім. Компьютерлік жүйелер мен БҚ (30 сұрақ)</option>
+        <option value="2">2-бөлім. Компьютерлік желілер мен қауіпсіздік (30 сұрақ)</option>
+        <option value="3">3-бөлім. Деректер базасы (MS Access) (30 сұрақ)</option>
+        <option value="4">4-бөлім. Алгоритмдеу және Python (30 сұрақ)</option>
+      </select>
+
+      <div class="test-head">
+        <div>Сұрақ: <b id="qCurrent">1</b> / <span id="qTotal">30</span></div>
+        <div style="flex-grow:1;max-width:300px"><div class="progress"><div class="bar" id="progressBar"></div></div></div>
+      </div>
+
+      <div id="quizContainer"></div>
+
+      <div class="actions">
+        <button class="btn secondary" id="btnPrev">← Алдыңғысы</button>
+        <button class="btn primary" id="btnNext">Келесі →</button>
+        <button class="btn primary" id="btnFinish" style="display:none;background:var(--green)">Тестті аяқтау</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- НӘТИЖЕ БӨЛІМІ -->
+  <section id="result" class="panel">
+    <div class="card result show">
+      <h2>Тест Нәтижесі</h2>
+      <div class="score" id="resultScore">0 / 30</div>
+      <p id="resultPercentage" style="font-size:20px;font-weight:700"></p>
+      <div id="resultBadge" class="badge">Бағалануда...</div>
+      <div id="resultMotivation" class="motivation" style="margin-top:20px"></div>
+      <div class="actions" style="justify-content:center;margin-top:20px">
+        <button class="btn primary" id="btnRestart">Осы тақырыпты қайта тапсыру</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const rawQuizDatabase = {
+  1: [
+    { q: "Компьютердің барлық ресурстарын және бағдарламаларды басқаратын негізгі жүйелік БҚ қайсысы?", options: ["Операциялық жүйе", "Браузер", "Мәтіндік редактор", "Антивирус"], correctIndex: 0 },
+    { q: "Аппараттық құрылғыны операциялық жүйемен байланыстыратын арнайы бағдарлама:", options: ["Драйвер", "Утилита", "Компилятор", "Архиватор"], correctIndex: 0 },
+    { q: "Компьютерді зиянды бағдарламалардан қорғайтын БҚ:", options: ["Антивирус", "Архиватор", "Графикалық редактор", "Төлем жүйесі"], correctIndex: 0 },
+    { q: "Пайдаланушыға мәтін жазуға, кесте құруға мүмкіндік беретін бағдарламалар қай топқа жатады?", options: ["Қолданбалы БҚ", "Жүйелік БҚ", "Программалау жүйелері", "Драйверлер"], correctIndex: 0 },
+    { q: "Файлдар көлемін кішірейтіп сақтауға арналған БҚ түрі:", options: ["Архиватор", "Операциялық жүйе", "Браузер", "Драйвер"], correctIndex: 0 },
+    { q: "Компьютер іске қосылғанда операциялық жүйені қай ЖШҮ сақтайды?", options: ["Қатқыл диск", "Жедел оқыту құрылғысы", "Тұрақты сақтау құрылғысы (ROM)", "Кеш-жад"], correctIndex: 0 },
+    { q: "Windows, Linux, macOS бағдарламалары БҚ-ның қай түріне жатады?", options: ["Операциялық жүйелер", "Қолданбалы БҚ", "Утилиталар", "Серверлік БҚ"], correctIndex: 0 },
+    { q: "Компьютерлік жүйенің қатқыл дискісін тексеру және тазалау бағдарламалары:", options: ["Утилиталар", "Драйверлер", "Трансляторлар", "Браузерлер"], correctIndex: 0 },
+    { q: "Мәтіндік құжаттарды өңдеуге арналған бағдарлама:", options: ["MS Word", "MS Access", "Paint", "WinRAR"], correctIndex: 0 },
+    { q: "Файлдық жүйені қалпына келтіру немесе дефрагментация жасау қызметі қай БҚ-ға кіреді?", options: ["Жүйелік БҚ (Утилита)", "Қолданбалы БҚ", "Бағдарламалау типі", "Мәліметтер базасы"], correctIndex: 0 },
+    { q: "Операциялық жүйенің негізгі қызметіне жатпайды:", options: ["Компьютерлік вирус жазу", "Аппараттық құралдарды басқару", "Пайдаланушымен интерфейс орнату", "Файлдық жүйені ұйымдастыру"], correctIndex: 0 },
+    { q: "Графикалық ақпаратты өңдеуге арналған қолданбалы БҚ:", options: ["Adobe Photoshop", "MS Access", "Driver Pack", "Total Commander"], correctIndex: 0 },
+    { q: "Бағдарламалық қамтамасыз етудің ағылшынша баламасы:", options: ["Software", "Hardware", "Shareware", "Freeware"], correctIndex: 0 },
+    { q: "Қолданбалы бағдарламалық қамтамасыз етудің мақсаты не?", options: ["Пайдаланушының белгілі бір тапсырмасын орындау", "Компьютер жадын ұлғайту", "Процессор жиілігін арттыру", "Желілік протоколдарды реттеу"], correctIndex: 0 },
+    { q: "RAR, ZIP кеңейтілімдері бар файлдар қай бағдарламамен ашылады?", options: ["Архиватор", "Мәтіндік редактор", "Драйвер", "Видеоплеер"], correctIndex: 0 },
+    { q: "Компьютердің құрылғылары мен программалары арасындағы сұхбатты қамтамасыз етеді:", options: ["Пайдаланушы интерфейсі", "Драйверлер", "Жүйелік шина", "Процессор тактісі"], correctIndex: 0 },
+    { q: "Тегін таратылатын бағдарламалық қамтамасыз ету түрі:", options: ["Freeware", "Commercial", "Shareware", "Payware"], correctIndex: 0 },
+    { q: "Компилятор мен интерпретатор БҚ-ның қай тобына жатады?", options: ["Программалау жүйелері", "Қолданбалы БҚ", "Утилиталар", "Операциялық жүйелер"], correctIndex: 0 },
+    { q: "Архивтелген файлдың басты артықшылығы:", options: ["Көлемінің кішіреюі", "Файлдың түсінің өзгеруі", "Сұрыптау жылдамдығы", "Деректердің көбейюі"], correctIndex: 0 },
+    { q: "Бағдарламалық қамтамасыз ету неше негізгі топқа бөлінеді?", options: ["3", "2", "4", "5"], correctIndex: 0 },
+    { q: "Белгілі бір уақытқа тегін берілетін бағдарламалар:", options: ["Shareware", "Freeware", "Adware", "Firmware"], correctIndex: 0 },
+    { q: "Компьютерді зиянды кодардан қорғайтын және емдейтін БҚ:", options: ["Антивирус", "Архиватор", "Браузер", "Драйвер"], correctIndex: 0 },
+    { q: "Видеоларды көруге арналған бағдарлама қай БҚ-ға жатады?", options: ["Қолданбалы БҚ", "Жүйелік БҚ", "Драйвер", "Бағдарламалау тілі"], correctIndex: 0 },
+    { q: "Компьютерлік бағдарламалар коды орналасатын негізгі орын:", options: ["Жад", "Монитор", "Пернетақта", "Тінтуір"], correctIndex: 0 },
+    { q: "Операциялық жүйенің ядросы қайда жүктеледі?", options: ["Жедел жадқа (RAM)", "Тұрақты жадқа (ROM)", "Флешкаға", "Дискіге"], correctIndex: 0 },
+    { q: "Компьютердің аппараттық қамтамасыз етілуі қалай аталады?", options: ["Hardware", "Software", "Freeware", "Malware"], correctIndex: 0 },
+    { q: "Төмендегілердің қайсысы ОЖ болып табылады?", options: ["Linux", "Python", "Word", "Excel"], correctIndex: 0 },
+    { q: "Файлдар мен бумаларды басқаруға арналған бағдарламалар:", options: ["Файлдық менеджерлер", "Архиваторлар", "Браузерлер", "Драйверлер"], correctIndex: 0 },
+    { q: "Драйвер бұзылса не болады?", options: ["Құрылғы дұрыс жұмыс істемейді", "Процессор жанып кетеді", "Экран өшеді", "Желі өшеді"], correctIndex: 0 },
+    { q: "MS Excel бағдарламасының негізгі міндеті:", options: ["Электрондық кестелермен жұмыс", "Мәтін теру", "Сурет салу", "Код жазу"], correctIndex: 0 }
+  ],
+  2: [
+    { q: "Желіге қосылған әрбір компьютердің бірегей сандық идентификаторы қалай аталады?", options: ["IP-мекенжай", "DNS", "URL", "MAC-пароль"], correctIndex: 0 },
+    { q: "Сандық IP-мекенжайды адамға түсінікті сөздерге айналдыратын жүйе:", options: ["DNS", "HTTP", "FTP", "TCP/IP"], correctIndex: 0 },
+    { q: "Желіде рұқсатсыз кіруден қорғайтын ақпараттық қауіпсіздік құралы:", options: ["Брандмауэр (Firewall)", "Драйвер", "Сканер", "Браузер"], correctIndex: 0 },
+    { q: "Компьютерлік желіде деректерді тасымалдау ережелері мен стандарттары жиынтығы:", options: ["Протокол", "Сервер", "Клиент", "Мембран"], correctIndex: 0 },
+    { q: "Ақпаратты қорғау үшін оны кодталған түрге айналдыру процесі:", options: ["Шифрлау (Crypting)", "Архивация", "Дефрагментация", "Форматтау"], correctIndex: 0 },
+    { q: "Бір ғимарат немесе мектеп ішіндегі компьютерлерді біріктіретін желі:", options: ["Жергілікті желі (LAN)", "Ауқымды желі (WAN)", "Аймақтық желі (MAN)", "Глобальды желі"], correctIndex: 0 },
+    { q: "Бүкіл әлемді біріктіретін глобальды желі:", options: ["Internet", "LAN", "Intranet", "MAN"], correctIndex: 0 },
+    { q: "Желідегі компьютерлерді өзара байланыстыратын орталық құрылғы:", options: ["Коммутатор (Switch/Hub)", "Монитор", "Процессор", "Драйвер"], correctIndex: 0 },
+    { q: "Интернеттегі веб-беттің орналасқан мекенжайы:", options: ["URL", "IP", "DNS", "MAC"], correctIndex: 0 },
+    { q: "Пайдаланушыларды алдап, құпия сөздерді ұрлауға бағытталған кибершабуыл:", options: ["Фишинг", "Спам", "Дефрагментация", "Форматтау"], correctIndex: 0 },
+    { q: "Компьютерлік вирустардың негізгі таралу жолы:", options: ["Интернет және флешкалар", "Пернетақта арқылы", "Монитор жарығымен", "Басып шығару арқылы"], correctIndex: 0 },
+    { q: "Желілік протоколның мысалы:", options: ["HTTP", "HTML", "CSS", "DOCX"], correctIndex: 0 },
+    { q: "Сұраусыз жіберілетін жарнамалық немесе бейтаныс хаттар:", options: ["Спам", "Фишинг", "Ботнет", "Троян"], correctIndex: 0 },
+    { q: "Ақпараттық қауіпсіздіктің негізгі 3 принципінің бірі:", options: ["Құпиялылық", "Жылдамдық", "Көлем", "Арзандық"], correctIndex: 0 },
+    { q: "Сымсыз желілік байланыс технологиясы:", options: ["Wi-Fi", "Ethernet", "VGA", "HDMI"], correctIndex: 0 },
+    { q: "Желіде ресурстарды ұсынатын қуатты компьютер:", options: ["Сервер", "Клиент", "Адаптер", "Маршрутизатор"], correctIndex: 0 },
+    { q: "Желіде ресурстарды пайдаланатын компьютер:", options: ["Клиент", "Сервер", "Шлюз", "Хаб"], correctIndex: 0 },
+    { q: "IP-мекенжай неше октеттен (саннан) тұрады?", options: ["4", "2", "6", "8"], correctIndex: 0 },
+    { q: "Өзін-өзі көбейтетін зиянды бағдарлама:", options: ["Компьютерлік вирус", "Антивирус", "Драйвер", "Браузер"], correctIndex: 0 },
+    { q: "Пайдаланушыға білдіртпей ақпарат жинайтын зиянды бағдарлама:", options: ["Шпиондық БҚ (Spyware)", "Архиватор", "Брандмауэр", "Протокол"], correctIndex: 0 },
+    { q: "Сымды жергілікті желіні құруға арналған кабель түрі:", options: ["Иірілген қос сым (Кабель)", "Электр сымы", "Телефон сымы", "Таспалы кабель"], correctIndex: 0 },
+    { q: "Парольдің қауіпсіз болу ережесі:", options: ["Әріптер, сандар және арнайы таңбаларды араластыру", "Тек туған жылды жазу", "123456 деп қою", "Аты-жөнін жазу"], correctIndex: 0 },
+    { q: "Сайттың қауіпсіз байланыс протоколы қайсысы?", options: ["HTTPS", "HTTP", "FTP", "IP"], correctIndex: 0 },
+    { q: "Деректерді пакеттерге бөліп тасымалдайтын негізгі желілік протокол:", options: ["TCP/IP", "DNS", "DHCP", "SMTP"], correctIndex: 0 },
+    { q: "Файлдарды желі арқылы беруге арналған протокол:", options: ["FTP", "HTTP", "DNS", "POP3"], correctIndex: 0 },
+    { q: "Электрондық пошта жіберу протоколы:", options: ["SMTP", "HTTP", "FTP", "IP"], correctIndex: 0 },
+    { q: "Домендік зонаның мысалы (Қазақстан үшін):", options: [".kz", ".ru", ".com", ".org"], correctIndex: 0 },
+    { q: "Компьютерді желіге қосуға арналған ішкі карта:", options: ["Желілік карта (NIC)", "Дыбыстық карта", "Видеокарта", "Туралағыш"], correctIndex: 0 },
+    { q: "Браузер дегеніміз не?", options: ["Веб-беттерді қарау бағдарламасы", "Вирус тазалайтын құрылғы", "Ішкі жад түрі", "Программалау тілі"], correctIndex: 0 },
+    { q: "Кибербуллинг деген не?", options: ["Интернеттегі қоқан-лоқы мен әлімжеттік", "Вирус емдеу", "Желіні жөндеу", "Файл ашу"], correctIndex: 0 }
+  ],
+  3: [
+    { q: "Реляциялық деректер базасында кестенің жолдары қалай аталады?", options: ["Жазба (Record)", "Өріс (Field)", "Кілт (Key)", "Индекс (Index)"], correctIndex: 0 },
+    { q: "Деректер базасындағы әрбір жазбаны бірегей түрде анықтайтын өріс:", options: ["Кілттік өріс (Primary Key)", "Мәтіндік өріс", "Логикалық өріс", "Екінші ретті өріс"], correctIndex: 0 },
+    { q: "MS Access ДБ-да сандарды сақтауға арналған өріс типі:", options: ["Number", "Short Text", "Date/Time", "Yes/No"], correctIndex: 0 },
+    { q: "Реляциялық деректер базасында кестенің бағандары қалай аталады?", options: ["Өріс (Field)", "Жазба (Record)", "Ұяшық (Cell)", "Блок (Block)"], correctIndex: 0 },
+    { q: "Деректер базасында логикалық (иә/жоқ) мәндерді сақтауға арналған тип:", options: ["Yes/No", "Memo", "Text", "Currency"], correctIndex: 0 },
+    { q: "Кестедегі деректерді сұрыптау және іздеуді жеделдету үшін қолданылатын ДБ құралы:", options: ["Индекс", "Макрос", "Модуль", "Форма"], correctIndex: 0 },
+    { q: "Деректер базасын басқару жүйесінің ағылшынша қысқартылуы:", options: ["DBMS / ДББЖ", "SQL", "RAM", "HTML"], correctIndex: 0 },
+    { q: "MS Access қандай бағдарламалар тобына жатады?", options: ["ДББЖ (СУБД)", "Графикалық редактор", "Оперециялық жүйе", "Браузер"], correctIndex: 0 },
+    { q: "Үлкен мәтіндерді (255 символдан көп) сақтауға арналған өріс типі:", options: ["Long Text (Memo)", "Short Text", "Number", "AutoNumber"], correctIndex: 0 },
+    { q: "Автоматты түрде өсетін ретmік номерді сақтайтын өріс типі:", options: ["AutoNumber (Счетчик)", "Number", "Text", "Currency"], correctIndex: 0 },
+    { q: "Деректер базасында сауалнама жүргізу, іздеу жасау құралы:", options: ["Сұраныс (Query)", "Форма", "Есеп (Report)", "Кесте"], correctIndex: 0 },
+    { q: "Деректерді экранға ыңғайлы түрде енгізу және қарау құралы:", options: ["Форма (Form)", "Сұраныс", "Кесте", "Индекс"], correctIndex: 0 },
+    { q: "Деректерді баспаға шығаруға арналған MS Access нысаны:", options: ["Есеп (Report)", "Форма", "Сұраныс", "Кесте"], correctIndex: 0 },
+    { q: "Ақшалай мәліметтерді сақтауға арналған өріс типі:", options: ["Currency (Денежный)", "Number", "Text", "Logic"], correctIndex: 0 },
+    { q: "Реляциялық деректер базасының негізгі нысаны:", options: ["Кесте", "Форма", "Сұраныс", "Есеп"], correctIndex: 0 },
+    { q: "Екі кесте арасындағы байланыс түрі:", options: ["Бірдің бірге (1:1)", "Көптің жоққа", "Шексіздік", "Нөлге тең"], correctIndex: 0 },
+    { q: "Деректер базасында өріс аты қай жерде жазылады?", options: ["Бағанның тақырыбында", "Жолдың басында", "Ұяшықтың ішінде", "Кесте соңында"], correctIndex: 0 },
+    { q: "Сұраныс (Query) не үшін керек?", options: ["Шарт бойынша деректерді сүзгілеу мен іздеу үшін", "Сурет салу үшін", "Пароль қою үшін", "Тақырып жазу үшін"], correctIndex: 0 },
+    { q: "Суреттер мен объектілерді сақтауға арналған өріс типі:", options: ["OLE Object", "Short Text", "Hyperlink", "Attachment"], correctIndex: 0 },
+    { q: "Веб-сайт сілтемелерін сақтауға арналған өріс типі:", options: ["Hyperlink (Гиперссылка)", "Text", "Memo", "Number"], correctIndex: 0 },
+    { q: "Деректер базасындағы ақпаратты сұрыптау деген не?", options: ["Режим бойынша реттеу (өсу/кему)", "Деректі өшіру", "Жаңа өріс қосу", "Баспаға шығару"], correctIndex: 0 },
+    { q: "Иерархиялық ДБ құрылымы қандай пішінге ұқсайды?", options: ["Ағаш тәрізді", "Кестелік", "Желілік", "Түзу"], correctIndex: 0 },
+    { q: "Желілік ДБ-да элементтер арасында байланыс қандай?", options: ["Әр элемент бірнешеумен байланыса алады", "Тек 1-еумен", "Байланыс болмайды", "Тек кестемен"], correctIndex: 0 },
+    { q: "MS Access файлының кеңейтілімі қайсысы?", options: [".accdb", ".docx", ".xlsx", ".txt"], correctIndex: 0 },
+    { q: "Өріс қасиеттеріндегі 'Required' (Обязательное поле) не білдіреді?", options: ["Өрісті бос қалдыруға болмайды", "Өріс жасырын", "Тек сан жазылады", "Өріс өшірілген"], correctIndex: 0 },
+    { q: "Сұраныс құрудың конструкторы қалай аталады?", options: ["Query Design", "Table Master", "Form View", "Report Wizard"], correctIndex: 0 },
+    { q: "ДБ-да бір адамның тегі, аты, жасы жазылған бір жол бұл:", options: ["Жазба", "Өріс", "Кесте", "Кілт"], correctIndex: 0 },
+    { q: "Кілттік өрісте қайталанатын мәндер болуы мүмкін бе?", options: ["Болмайды, мәндер бірегей болуы тиіс", "Болады", "Тек сандарда болады", "Тек мәтінде болады"], correctIndex: 0 },
+    { q: "Кестенің құрылымын (өріс аты мен типін) өзгерту режимі:", options: ["Design View (Конструктор)", "Datasheet View", "Form View", "Print View"], correctIndex: 0 },
+    { q: "Деректер базасын құрудың бірінші кезеңі:", options: ["Жобалау және құрылымын анықтау", "Дерек енгізу", "Баспаға шығару", "Сурет қосу"], correctIndex: 0 }
+  ],
+  4: [
+    { q: "Python тілінде қайталану саны алдын ала белгілі болғанда қай цикл қолданылады?", options: ["for", "while", "if", "elif"], correctIndex: 0 },
+    { q: "Python-да циклдің жұмысын мерзімінен бұрын толық тоқтату үшін қай оператор қолданылады?", options: ["break", "continue", "exit", "stop"], correctIndex: 0 },
+    { q: "range(1, 5) функциясы қай сандар тізбегін береді?", options: ["1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4", "2, 3, 4, 5"], correctIndex: 0 },
+    { q: "while циклі қай кезде қайталануын тоқтатады?", options: ["Шарт жалған (False) болғанда", "Шарт ақиқат болғанда", "Қайталану саны 10-ға жеткенде", "print() орындалғанда"], correctIndex: 0 },
+    { q: "Python-да тізімнің соңына жаңа элемент қосатын әдіс:", options: ["append()", "add()", "push()", "insert()"], correctIndex: 0 },
+    { q: "Циклдің ағымдағы қадамын өткізіп жіберіп, келесі қадамға өтетін оператор:", options: ["continue", "break", "pass", "skip"], correctIndex: 0 },
+    { q: "len([10, 20, 30, 40]) функциясының нәтижесі неге тең?", options: ["4", "100", "3", "40"], correctIndex: 0 },
+    { q: "Python-да бірінші элементтің индексі неге тең?", options: ["0", "1", "-1", "2"], correctIndex: 0 },
+    { q: "Екі шарттың да бірдей орындалуын тексеретін Python логикалық операторы:", options: ["and", "or", "not", "xor"], correctIndex: 0 },
+    { q: "Python-да теңдікті тексеруге арналған салыстыру операторы:", options: ["==", "=", ":=", "=>"], correctIndex: 0 },
+    { q: "Тармақталу алгоритмінде бірнеше шартты тізбектей тексеру үшін қай оператор қолданылады?", options: ["elif", "else if", "then", "case"], correctIndex: 0 },
+    { q: "a = [5, 12, 8, 3] тізімі берілген. a[1] элементі неге тең?", options: ["12", "5", "8", "3"], correctIndex: 0 },
+    { q: "Тізімдегі барлық сандардың қосындысын табатын дайын функция:", options: ["sum()", "max()", "count()", "total()"], correctIndex: 0 },
+    { q: "Кем дегенде бір шарт орындалса жеткілікті болатын оператор:", options: ["or", "and", "not", "equal"], correctIndex: 0 },
+    { q: "Python-да тізім қалай белгіленеді?", options: ["Квадрат жақшамен []", "Жүйелі жақшамен {}", "Жай жақшамен ()", "Бұрышты жақшамен <>"], correctIndex: 0 },
+    { q: "Тізімдегі ең үлкен элементті табатын функция:", options: ["max()", "min()", "top()", "large()"], correctIndex: 0 },
+    { q: "Тізімдегі ең кіші элементті табатын функция:", options: ["min()", "max()", "small()", "low()"], correctIndex: 0 },
+    { q: "Python тілінде өзгеретін деректер құрылымы:", options: ["Тізім (List)", "Кортеж (Tuple)", "Жол (String)", "Сан"], correctIndex: 0 },
+    { q: "range(5) қандай сандарды береді?", options: ["0, 1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4, 5", "1, 2, 3, 4"], correctIndex: 0 },
+    { q: "Тең емес екенін тексеретін салыстыру операторы:", options: ["!=", "==", "=<", "=>"], correctIndex: 0 },
+    { q: "Python-да экранға мәлімет шығару функциясы:", options: ["print()", "input()", "write()", "output()"], correctIndex: 0 },
+    { q: "Экраннан мәліметтерді енгізу функциясы:", options: ["input()", "print()", "read()", "get()"], correctIndex: 0 },
+    { q: "Мәтіндік деректер типі қалай аталады?", options: ["str", "int", "float", "bool"], correctIndex: 0 },
+    { q: "Бүтін сандық деректер типі:", options: ["int", "float", "str", "list"], correctIndex: 0 },
+    { q: "Нақты (бөлшек) сандар типі:", options: ["float", "int", "bool", "str"], correctIndex: 0 },
+    { q: "range(2, 10, 2) функциясындағы '2' қадам нені білдіреді?", options: ["Өсім қадамын", "Бастапқы санды", "Соңғы санды", "Сандар санын"], correctIndex: 0 },
+    { q: "Цикл ішінде шексіз айналым болмау үшін не қажет?", options: ["Шарттың өзгеруін бақылау", "Тек for пайдалану", "Таңбаларды өшіру", "Тізімді өшіру"], correctIndex: 0 },
+    { q: "Тізімді өсу ретімен сұрыптау әдісі:", options: ["sort()", "reverse()", "clear()", "pop()"], correctIndex: 0 },
+    { q: "a = [10, 20, 30] болса, a.pop() не істейді?", options: ["Соңғы элементті өшіреді", "Бірінші элементті өшіреді", "Барлығын өшіреді", "Қосады"], correctIndex: 0 },
+    { q: "Код нәтижесі не болады? print(2 ** 3)", options: ["8", "6", "5", "9"], correctIndex: 0 }
+  ]
+};
+
+let currentQuestions = [];
+let userAnswers = {};
+let currentIndex = 0;
+
+const loginOverlay = document.getElementById('loginOverlay');
+const topicSelect = document.getElementById('topicSelect');
+const quizContainer = document.getElementById('quizContainer');
+const qCurrent = document.getElementById('qCurrent');
+const qTotal = document.getElementById('qTotal');
+const progressBar = document.getElementById('progressBar');
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const btnFinish = document.getElementById('btnFinish');
+
+// Жауаптарды кездейсоқ араластыру (Shuffle) функциясы
+function prepareShuffledQuestions(topicId) {
+  const originalList = rawQuizDatabase[topicId];
+  return originalList.map(item => {
+    const opts = [...item.options];
+    const correctText = opts[item.correctIndex || 0];
+    
+    // Fisher-Yates shuffle
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    
+    const newCorrectIndex = opts.indexOf(correctText);
+    return {
+      q: item.q,
+      options: opts,
+      correct: newCorrectIndex
+    };
+  });
+}
+
+document.getElementById('studentLogin').addEventListener('click', () => {
+  if(!document.getElementById('studentName').value) { alert("Аты-жөніңізді жазыңыз!"); return; }
+  loginOverlay.style.display = 'none';
+});
+
+document.querySelectorAll('.nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+topicSelect.addEventListener('change', loadTopicQuestions);
+
+function loadTopicQuestions() {
+  const selectedTopic = topicSelect.value;
+  currentQuestions = prepareShuffledQuestions(selectedTopic);
+  currentIndex = 0;
+  userAnswers = {};
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = currentQuestions[currentIndex];
+  qCurrent.textContent = currentIndex + 1;
+  qTotal.textContent = currentQuestions.length;
+  progressBar.style.width = `${((currentIndex + 1) / currentQuestions.length) * 100}%`;
+
+  let html = `
+    <div class="question">
+      <div class="qtop"><span class="topic">${topicSelect.options[topicSelect.selectedIndex].text.split('.')[0]}</span></div>
+      <h3>${q.q}</h3>
+      <div class="answers">
+  `;
+
+  const letters = ['A', 'B', 'C', 'D'];
+  q.options.forEach((opt, idx) => {
+    const isChecked = userAnswers[currentIndex] === idx ? 'checked' : '';
+    html += `
+      <label class="answer">
+        <input type="radio" name="q_${currentIndex}" value="${idx}" ${isChecked} onchange="selectAnswer(${idx})">
+        <span><b>${letters[idx]})</b> ${opt}</span>
+      </label>
+    `;
+  });
+
+  html += `</div></div>`;
+  quizContainer.innerHTML = html;
+
+  btnPrev.style.display = currentIndex === 0 ? 'none' : 'inline-block';
+  if(currentIndex === currentQuestions.length - 1) {
+    btnNext.style.display = 'none';
+    btnFinish.style.display = 'inline-block';
+  } else {
+    btnNext.style.display = 'inline-block';
+    btnFinish.style.display = 'none';
+  }
+}
+
+function selectAnswer(optIdx) {
+  userAnswers[currentIndex] = optIdx;
+}
+
+btnPrev.addEventListener('click', () => { if(currentIndex > 0) { currentIndex--; renderQuestion(); } });
+btnNext.addEventListener('click', () => { if(currentIndex < currentQuestions.length - 1) { currentIndex++; renderQuestion(); } });
+
+btnFinish.addEventListener('click', showResult);
+document.getElementById('btnRestart').addEventListener('click', () => {
+  loadTopicQuestions();
+  document.querySelector('[data-tab="test"]').click();
+});
+
+function showResult() {
+  let score = 0;
+  currentQuestions.forEach((q, idx) => {
+    if(userAnswers[idx] === q.correct) score++;
+  });
+
+  const total = currentQuestions.length;
+  const percentage = Math.round((score / total) * 100);
+
+  document.getElementById('resultScore').textContent = `${score} / ${total}`;
+  document.getElementById('resultPercentage').textContent = `Көрсеткіш: ${percentage}%`;
+
+  const badge = document.getElementById('resultBadge');
+  const motivation = document.getElementById('resultMotivation');
+
+  if(percentage >= 85) {
+    badge.textContent = "Өте жақсы! Тамаша нәтиже!";
+    badge.style.background = "#dcfce7"; badge.style.color = "#166534";
+    motivation.textContent = "🎉 Құттықтаймыз! Сен бұл тақырыпты толық меңгергенсің!";
+  } else if(percentage >= 60) {
+    badge.textContent = "Жақсы! Жаман емес!";
+    badge.style.background = "#fef3c7"; badge.style.color = "#854d0e";
+    motivation.textContent = "👍 Нәтижең жақсы, бірақ ережелерді тағы бір қайталап шыққан артық етпейді.";
+  } else {
+    badge.textContent = "Қайталау қажет!";
+    badge.style.background = "#fee2e2"; badge.style.color = "#991b1b";
+    motivation.textContent = "📚 Теориялық материалды қайтадан мұқият оқып шығуға кеңес береміз.";
+  }
+
+  document.querySelector('[data-tab="result"]').click();
+}
+
+loadTopicQuestions();
+</script>
+</body>
+</html>
