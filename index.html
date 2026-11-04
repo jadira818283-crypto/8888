@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python тренажері | 65 тест</title>
+<style>
+:root{--bg:#f4f7ff;--ink:#18294b;--sub:#60708e;--line:#dbe4f3;--blue:#514ee8;--purple:#8052e9;--green:#118360;--red:#c73d59}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.55 'Segoe UI',Arial,sans-serif;color:var(--ink)}header{background:linear-gradient(110deg,#242a75,#584fd8,#008ca6);color:white;padding:28px 20px}.wrap{max-width:1000px;margin:auto}h1{margin:0;font-size:clamp(24px,3vw,37px)}header p{margin:7px 0 0;opacity:.9}main{padding:26px 18px 60px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.card,.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 25px #12214a0b}.card h2{margin:8px 0 5px;font-size:21px}.card p{color:var(--sub);margin:4px 0 18px}.pill{display:inline-block;background:#ecebff;color:#433fc0;border-radius:24px;padding:5px 12px;font-size:13px;font-weight:700}.btn{background:var(--blue);border:0;border-radius:11px;padding:11px 18px;color:#fff;font-weight:700;cursor:pointer}.btn.secondary{color:#373c72;background:#edeeff}.btn:disabled{opacity:.5;cursor:not-allowed}.btn:hover:not(:disabled){filter:brightness(.95)}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.space{justify-content:space-between}.hidden{display:none!important}h2,h3{line-height:1.25}h3{margin-top:26px}.muted{color:var(--sub)}pre{padding:16px;background:#131d36;color:#e3f0ff;overflow:auto;border-radius:12px;font:14px/1.7 Consolas,Monaco,monospace;white-space:pre-wrap}.theory p,.theory li{line-height:1.7}.compare{overflow:auto}table{border-collapse:collapse;width:100%;min-width:520px}td,th{padding:11px 13px;border:1px solid var(--line);text-align:left}th{background:#ecf0ff}.note{background:#f0f5ff;border-left:4px solid var(--blue);border-radius:9px;padding:14px 17px;margin:15px 0}.step{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.tile{background:#e9e8ff;border:1px solid #cbc7ff;border-radius:9px;padding:9px 12px;font-weight:800;min-width:42px;text-align:center}.tile.fixed{background:#d6f6e8;border-color:#83d4af}.step-label{font-weight:700;color:#404c77;margin-top:17px}.option{display:block;padding:12px 15px;margin:11px 0;border-radius:11px;border:1px solid var(--line);cursor:pointer}.option:has(input:checked){border-color:var(--blue);background:#f0efff}.option input{margin-right:10px;accent-color:var(--blue)}input[type=text],select{border:1px solid #b8c5dd;border-radius:9px;padding:11px;font:inherit;width:100%}.progress{height:9px;background:#e8edfa;border-radius:40px;overflow:hidden;margin:12px 0}.fill{height:100%;background:var(--blue);width:0;transition:.2s}.question-num{font-size:23px;font-weight:800;margin:4px 0}.result{font-size:50px;font-weight:900;color:var(--blue)}.answer{border:1px solid var(--line);border-radius:13px;padding:15px;margin:12px 0;background:#fff}.answer.wrong{border-left:5px solid var(--red);background:#fff9fa}.answer.right{border-left:5px solid var(--green);background:#f6fffb}.review-code{margin:10px 0}.review-detail{margin:6px 0}.review-explain{background:#eef4ff;border-radius:9px;padding:10px 12px;margin-top:10px}.review-section{margin-top:24px}.review-pill{font-size:13px;font-weight:700}.review-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.review-toolbar button.active{background:#514ee8;color:#fff}.retry-info{font-size:14px;color:var(--sub)}.good{color:var(--green)}.bad{color:var(--red)}.tiny{font-size:13px}.topnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}.topnav button{border:1px solid #cbd5ea;border-radius:10px;background:#fff;color:#263a61;padding:9px 14px;cursor:pointer;font-weight:700}.stat{background:#edf6ff;padding:10px 13px;border-radius:10px}.cardsmall{background:#f8faff;border-radius:12px;padding:12px;margin:8px 0}footer{color:#7a89a5;padding:20px;text-align:center}@media(max-width:550px){.card,.panel{padding:17px}header{padding:22px 16px}.row .btn{flex:1}}
+
+.trace-panel{margin:14px 0;padding:17px;border:1px solid #dce3fa;border-radius:13px;background:#f8faff}.trace-controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}.trace-progress{font-weight:700;color:#433fc0}.trace-line{padding:9px 12px;margin:7px 0;border-radius:9px;background:white;border-left:3px solid #b7c4fa}.trace-line.swap{border-left-color:#e49a22}.trace-line.no-swap{border-left-color:#17a077}.trace-line .step{margin:6px 0}.tile.active{background:#ffe8b0;border-color:#e5aa35}.tile.minimum{background:#d4ebff;border-color:#65a3e9}.trace-caption{color:#60708e;font-size:14px}.trace-pass{border:1px solid #dce3fa;border-radius:11px;padding:13px;margin:12px 0;background:#fff}.trace-pass summary{cursor:pointer;font-weight:800}.trace-pass summary:hover{color:#514ee8}.trace-results{padding-top:8px}.trace-summary{font-weight:800;color:#194982;margin-top:8px}.trace-panel .btn{font-size:13px;padding:8px 12px}
+
+.trace-explain{background:#fff;border:1px solid #dce3fa;border-radius:12px;padding:12px 15px;line-height:1.8;margin:8px 0}
+.trace-explain code{font-weight:800;color:#273d81;font-size:15px}
+.trace-table{min-width:690px;font-size:14px}.trace-table th{background:#e9e8ff}.trace-table td{vertical-align:top}.trace-result{font-weight:800;color:#12664f;background:#f0fff7}
+.trace-pass[open]{border-color:#a9a6f0;box-shadow:0 4px 14px #403e9912}.trace-pass summary{font-size:17px}
+</style></head><body><header><div class="wrap"><h1>🐍 Python · интерактивті тренажер</h1><p>Жолдық әдістер • Bubble Sort • Selection Sort — 65 тапсырма</p></div></header>
+<main class="wrap"><nav class="topnav"><button onclick="goHome()">🏠 Басты бет</button><button onclick="openTopic('strings')">Жолдық әдістер</button><button onclick="openTopic('bubble')">Bubble Sort</button><button onclick="openTopic('selection')">Selection Sort</button></nav>
+<section id="home"><h2>Оқу тақырыбын таңдаңыз</h2><div class="grid">
+<article class="card"><span class="pill">25 тапсырма</span><h2>🔤 Жолдық әдістер</h2><p>count(), find(), strip() және индекстермен жұмыс.</p><button class="btn" onclick="openTopic('strings')">Тақырыпты ашу</button></article>
+<article class="card"><span class="pill">20 тапсырма</span><h2>🫧 Bubble Sort</h2><p>Көршілес элементтерді салыстыру, өту нәтижесін табу.</p><button class="btn" onclick="openTopic('bubble')">Тақырыпты ашу</button></article>
+<article class="card"><span class="pill">20 тапсырма</span><h2>🎯 Selection Sort</h2><p>Ең кішісін таңдау, орнын алмастыру, кодтан тану.</p><button class="btn" onclick="openTopic('selection')">Тақырыпты ашу</button></article>
+</div><div class="panel" style="margin-top:20px"><h2>📌 Екі сұрыптауды қалай ажыратамыз?</h2><div class="compare"><table><tr><th>Белгісі</th><th>Bubble Sort</th><th>Selection Sort</th></tr><tr><td>Негізгі әрекет</td><td>Көршілес a[j] және a[j+1] салыстырылады</td><td>Сұрыпталмаған бөліктегі ең кішісі ізделеді</td></tr><tr><td>Орын алмастыру</td><td>Бір өтімде бірнеше рет болуы мүмкін</td><td>Бір өтімде әдетте бір рет (кейде өзі-өзімен)</td></tr><tr><td>Кодтағы белгі</td><td><code>if a[j] &gt; a[j+1]</code></td><td><code>min_idx = i</code>, <code>if a[j] &lt; a[min_idx]</code></td></tr><tr><td>Бірінші өтім нәтижесі</td><td>Ең үлкен элемент массивтің соңына жылжиды</td><td>Ең кіші элемент массивтің басына қойылады</td></tr></table></div><p class="note"><b>Есте сақтау:</b> Bubble — «көршісін салыстыр»; Selection — «ең кішісін тап та орнына қой».</p></div></section>
+<section id="topic" class="hidden"><div class="row space"><h2 id="topicTitle"></h2><span class="pill" id="topicCount"></span></div><div id="theory" class="panel theory"></div><div class="panel" style="margin-top:18px"><h2>📝 Тестті бастау</h2><p class="muted">Оқушының аты-жөнін енгізіңіз. Сұрақтар мен жауап нұсқалары араласады.</p><form onsubmit="startQuiz(event)"><div class="grid"><label>Аты-жөні<input id="studentName" type="text" required maxlength="90" placeholder="Аты-жөні"></label><label>Сыныбы<input id="studentClass" type="text" required maxlength="20" placeholder="Мысалы: 7А"></label></div><div class="row" style="margin-top:16px"><button class="btn" type="submit">Тестті бастау</button><button class="btn secondary" type="button" onclick="goHome()">Басты бет</button></div></form></div></section>
+<section id="quiz" class="hidden"><div class="panel"><div class="row space"><span class="pill" id="quizTopic"></span><b id="quizStudent"></b></div><p class="muted" id="quizProgress"></p><div class="progress"><div class="fill" id="fill"></div></div><div class="question-num" id="qNumber"></div><p id="qPrompt"></p><pre id="qCode"></pre><div id="qOptions"></div><div class="row space"><button class="btn secondary" onclick="move(-1)">← Алдыңғы</button><button class="btn secondary" onclick="move(1)">Келесі →</button><button class="btn" onclick="finishQuiz()">Тестті аяқтау</button></div></div></section>
+<section id="results" class="hidden"><div class="panel"><h2>🏆 Тест нәтижесі</h2><div class="result" id="score"></div><p id="resultInfo"></p><div class="row"><button class="btn" onclick="downloadCSV()">Нәтижені CSV жүктеу</button><button class="btn secondary" onclick="openTopic(selected)">Қайта бастау</button><button class="btn secondary" onclick="goHome()">Басты бет</button></div><h3>🧠 Қатемен жұмыс</h3><p id="reviewSummary" class="muted"></p><div class="review-toolbar"><button id="wrongTab" class="btn secondary" onclick="renderReview('wrong')">❌ Қате жауаптар</button><button id="allTab" class="btn secondary" onclick="renderReview('all')">📋 Барлық жауаптар</button><button id="rightTab" class="btn secondary" onclick="renderReview('right')">✅ Дұрыс жауаптар</button></div><div id="review"></div><div class="row" style="margin-top:16px"><button id="retryWrongBtn" class="btn" onclick="retryWrong()">Қате сұрақтарды қайта орындау</button><button class="btn secondary" onclick="downloadCSV()">Талдауды CSV жүктеу</button></div></div></section>
+</main><footer>Бұл сайт GitHub Pages-та серверсіз жұмыс істейді. Нәтиже CSV түрінде оқушының құрылғысына жүктеледі.</footer>
+<script>
+'use strict';
+const STRINGS_BANK = [
+// count()
+{topic:'count()',code:"s = 'elephant'\nprint(s.count('e'))",answer:'2',choices:['1','2','3','0']},
+{topic:'count()',code:"s = 'success'\nprint(s.count('s'))",answer:'3',choices:['2','3','4','1']},
+{topic:'count()',code:"s = 'computer'\nprint(s.count('o'))",answer:'1',choices:['0','1','2','3']},
+{topic:'count()',code:"s = 'mississippi'\nprint(s.count('ss'))",answer:'2',choices:['1','2','3','4']},
+{topic:'count()',code:"s = 'developer'\nprint(s.count('e'))",answer:'3',choices:['2','3','4','1']},
+// count(s, i, j)
+{topic:'count(s, i, j)',code:"s = 'strawberry'\nprint(s.count('r', 2, 8))",answer:'2',choices:['1','2','3','0']},
+{topic:'count(s, i, j)',code:"s = 'committee'\nprint(s.count('m', 0, 5))",answer:'2',choices:['1','2','3','0']},
+{topic:'count(s, i, j)',code:"s = 'butterfly'\nprint(s.count('t', 3, 7))",answer:'1',choices:['0','1','2','3']},
+{topic:'count(s, i, j)',code:"s = 'bookkeeper'\nprint(s.count('e', 4, 10))",answer:'3',choices:['1','2','3','0']},
+{topic:'count(s, i, j)',code:"s = 'coconut'\nprint(s.count('o', 2, 6))",answer:'1',choices:['0','1','2','3']},
+// find()
+{topic:'find()',code:"s = 'sunflower'\nprint(s.find('f'))",answer:'3',choices:['2','3','4','-1']},
+{topic:'find()',code:"s = 'keyboard'\nprint(s.find('b'))",answer:'3',choices:['3','4','5','-1']},
+{topic:'find()',code:"s = 'rainbow'\nprint(s.find('z'))",answer:'-1',choices:['0','1','-1','Қате']},
+{topic:'find()',code:"s = 'chocolate'\nprint(s.find('col'))",answer:'3',choices:['2','3','4','-1']},
+{topic:'find()',code:"s = 'pineapple'\nprint(s.find('p'))",answer:'0',choices:['0','1','4','5']},
+// find(s, i, j)
+{topic:'find(s, i, j)',code:"s = 'watermelon'\nprint(s.find('e', 4, 9))",answer:'6',choices:['3','5','6','-1']},
+{topic:'find(s, i, j)',code:"s = 'buttercup'\nprint(s.find('t', 3, 7))",answer:'3',choices:['2','3','4','-1']},
+{topic:'find(s, i, j)',code:"s = 'blueberry'\nprint(s.find('b', 1, 9))",answer:'4',choices:['0','4','5','-1']},
+{topic:'find(s, i, j)',code:"s = 'starlight'\nprint(s.find('g', 2, 6))",answer:'-1',choices:['5','6','-1','7']},
+{topic:'find(s, i, j)',code:"s = 'pineapple'\nprint(s.find('p', 2, 9))",answer:'5',choices:['0','4','5','6']},
+// strip()
+{topic:'strip()',code:"s = '   Galaxy   '\nprint(s.strip())",answer:'Galaxy',choices:['   Galaxy','Galaxy   ','Galaxy',' Galaxy ']},
+{topic:'strip()',code:"s = '  Rocket  '\nprint(len(s.strip()))",answer:'6',choices:['6','7','8','10']},
+{topic:'strip()',code:"s = '###Robot###'\nprint(s.strip('#'))",answer:'Robot',choices:['###Robot','Robot###','Robot','#Robot#']},
+{topic:'strip()',code:"s = '  Good Morning  '\nprint(s.strip() == 'Good Morning')",answer:'True',choices:['True','False','None','Қате']},
+{topic:'strip()',code:"s = '***Space***'\nprint(len(s.strip('*')))",answer:'5',choices:['5','6','8','11']}
+];;
+const BUBBLE_BANK = [{"topic": "1-өтімнің нәтижесі", "code": "a = [6, 2, 5, 1, 4]\nfor i in range(1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[2, 5, 1, 4, 6]", "choices": ["[6, 2, 5, 1, 4]", "[2, 5, 1, 4, 6]", "[1, 2, 4, 5, 6]", "[2, 1, 4, 5, 6]"], "explanation": "Бірінші өтім нәтижесі: [2, 5, 1, 4, 6]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [9, 3, 7, 2, 5]\nfor i in range(1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[3, 7, 2, 5, 9]", "choices": ["[9, 3, 7, 2, 5]", "[2, 3, 5, 7, 9]", "[3, 7, 2, 5, 9]", "[3, 2, 5, 7, 9]"], "explanation": "Бірінші өтім нәтижесі: [3, 7, 2, 5, 9]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [4, 8, 1, 6, 3]\nfor i in range(1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[4, 1, 6, 3, 8]", "choices": ["[4, 8, 1, 6, 3]", "[1, 3, 4, 6, 8]", "[4, 1, 6, 3, 8]", "[1, 4, 3, 6, 8]"], "explanation": "Бірінші өтім нәтижесі: [4, 1, 6, 3, 8]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [7, 5, 2, 9, 1]\nfor i in range(1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[5, 2, 7, 1, 9]", "choices": ["[7, 5, 2, 9, 1]", "[1, 2, 5, 7, 9]", "[2, 5, 1, 7, 9]", "[5, 2, 7, 1, 9]"], "explanation": "Бірінші өтім нәтижесі: [5, 2, 7, 1, 9]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [8, 4, 6, 3, 2]\nfor i in range(1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[4, 6, 3, 2, 8]", "choices": ["[2, 3, 4, 6, 8]", "[8, 4, 6, 3, 2]", "[4, 3, 2, 6, 8]", "[4, 6, 3, 2, 8]"], "explanation": "Бірінші өтім нәтижесі: [4, 6, 3, 2, 8]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [5, 1, 7, 4, 2]\nfor i in range(2):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[1, 4, 2, 5, 7]", "choices": ["[1, 5, 4, 2, 7]", "[5, 1, 7, 4, 2]", "[1, 4, 2, 5, 7]", "[1, 2, 4, 5, 7]"], "explanation": "Екінші өтім нәтижесі: [1, 4, 2, 5, 7]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [3, 9, 2, 8, 6]\nfor i in range(2):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[2, 3, 6, 8, 9]", "choices": ["[3, 2, 8, 6, 9]", "[3, 2, 6, 8, 9]", "[2, 3, 6, 8, 9]", "[3, 9, 2, 8, 6]"], "explanation": "Екінші өтім нәтижесі: [2, 3, 6, 8, 9]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [6, 4, 9, 1, 5]\nfor i in range(2):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[4, 1, 5, 6, 9]", "choices": ["[4, 6, 1, 5, 9]", "[1, 4, 5, 6, 9]", "[6, 4, 9, 1, 5]", "[4, 1, 5, 6, 9]"], "explanation": "Екінші өтім нәтижесі: [4, 1, 5, 6, 9]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [8, 2, 7, 3, 1]\nfor i in range(2):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[2, 3, 1, 7, 8]", "choices": ["[2, 3, 1, 7, 8]", "[2, 7, 3, 1, 8]", "[1, 2, 3, 7, 8]", "[8, 2, 7, 3, 1]"], "explanation": "Екінші өтім нәтижесі: [2, 3, 1, 7, 8]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [4, 7, 5, 2, 9]\nfor i in range(2):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[4, 2, 5, 7, 9]", "choices": ["[4, 7, 5, 2, 9]", "[4, 5, 2, 7, 9]", "[4, 2, 5, 7, 9]", "[2, 4, 5, 7, 9]"], "explanation": "Екінші өтім нәтижесі: [4, 2, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [6, 2, 5, 1, 4]\nfor i in range(len(a)-1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 2, 4, 5, 6]", "choices": ["[2, 1, 4, 5, 6]", "[1, 2, 4, 5, 6]", "[2, 5, 1, 4, 6]", "[6, 2, 5, 1, 4]"], "explanation": "Өсу ретімен: [1, 2, 4, 5, 6]"}, {"topic": "Толық сұрыптау", "code": "a = [9, 3, 7, 2, 5]\nfor i in range(len(a)-1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[2, 3, 5, 7, 9]", "choices": ["[3, 7, 2, 5, 9]", "[3, 2, 5, 7, 9]", "[2, 3, 5, 7, 9]", "[9, 3, 7, 2, 5]"], "explanation": "Өсу ретімен: [2, 3, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [4, 8, 1, 6, 3]\nfor i in range(len(a)-1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 3, 4, 6, 8]", "choices": ["[4, 8, 1, 6, 3]", "[1, 3, 4, 6, 8]", "[1, 4, 3, 6, 8]", "[4, 1, 6, 3, 8]"], "explanation": "Өсу ретімен: [1, 3, 4, 6, 8]"}, {"topic": "Толық сұрыптау", "code": "a = [7, 5, 2, 9, 1]\nfor i in range(len(a)-1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 2, 5, 7, 9]", "choices": ["[2, 5, 1, 7, 9]", "[1, 2, 5, 7, 9]", "[7, 5, 2, 9, 1]", "[5, 2, 7, 1, 9]"], "explanation": "Өсу ретімен: [1, 2, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [8, 4, 6, 3, 2]\nfor i in range(len(a)-1):\n    for j in range(len(a)-1-i):\n        if a[j] > a[j+1]:\n            a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[2, 3, 4, 6, 8]", "choices": ["[8, 4, 6, 3, 2]", "[4, 6, 3, 2, 8]", "[2, 3, 4, 6, 8]", "[4, 3, 2, 6, 8]"], "explanation": "Өсу ретімен: [2, 3, 4, 6, 8]"}, {"topic": "Кодты талдау", "code": "for j in range(n-1-i):\n    if a[j] > a[j+1]:\n        a[j], a[j+1] = a[j+1], a[j]", "question": "Бұл код қандай екі элементті салыстырады?", "answer": "Көршілес элементтер", "choices": ["Бірінші мен соңғыны", "Ең кіші мен соңғыны", "Кездейсоқ элементтер", "Көршілес элементтер"], "explanation": "Дұрыс: Көршілес элементтер"}, {"topic": "Кодты талдау", "code": "a = [5, 2, 4]\nif a[0] > a[1]:\n    a[0], a[1] = a[1], a[0]\nprint(a)", "question": "Бір салыстырудан кейін нәтиже қандай?", "answer": "[2, 5, 4]", "choices": ["[5, 4, 2]", "[5, 2, 4]", "[2, 5, 4]", "[2, 4, 5]"], "explanation": "Дұрыс: [2, 5, 4]"}, {"topic": "Кодты талдау", "code": "for i in range(n-1):\n    for j in range(n-1-i):", "question": "n=5 болса, сыртқы цикл неше рет қайталанады?", "answer": "4", "choices": ["4", "5", "3", "10"], "explanation": "Дұрыс: 4"}, {"topic": "Кодты талдау", "code": "if a[j] > a[j+1]:\n    a[j], a[j+1] = a[j+1], a[j]", "question": "Қай шартта орындары ауысады?", "answer": "Сол жақ элемент оң жақтан үлкен болса", "choices": ["Екеуі тең болса", "Әр қадам сайын", "Сол жақ элемент оң жақтан үлкен болса", "Сол жақ элемент кіші болса"], "explanation": "Дұрыс: Сол жақ элемент оң жақтан үлкен болса"}, {"topic": "Кодты талдау", "code": "a = [3, 1, 2]\nfor j in range(len(a)-1):\n    if a[j] > a[j+1]:\n        a[j], a[j+1] = a[j+1], a[j]\nprint(a)", "question": "Бір өтімнен соң массив қандай?", "answer": "[1, 2, 3]", "choices": ["[1, 3, 2]", "[1, 2, 3]", "[2, 1, 3]", "[3, 1, 2]"], "explanation": "Дұрыс: [1, 2, 3]"}];
+const SELECTION_BANK = [{"topic": "1-өтімнің нәтижесі", "code": "a = [6, 2, 5, 1, 4]\nfor i in range(1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[1, 2, 5, 6, 4]", "choices": ["[1, 2, 5, 6, 4]", "[6, 5, 4, 2, 1]", "[1, 2, 4, 5, 6]", "[6, 2, 5, 1, 4]"], "explanation": "Бірінші өтім нәтижесі: [1, 2, 5, 6, 4]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [9, 3, 7, 2, 5]\nfor i in range(1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[2, 3, 7, 9, 5]", "choices": ["[2, 3, 7, 9, 5]", "[9, 3, 7, 2, 5]", "[2, 3, 5, 7, 9]", "[9, 7, 5, 3, 2]"], "explanation": "Бірінші өтім нәтижесі: [2, 3, 7, 9, 5]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [4, 8, 1, 6, 3]\nfor i in range(1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[1, 8, 4, 6, 3]", "choices": ["[8, 6, 4, 3, 1]", "[4, 8, 1, 6, 3]", "[1, 8, 4, 6, 3]", "[1, 3, 4, 6, 8]"], "explanation": "Бірінші өтім нәтижесі: [1, 8, 4, 6, 3]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [7, 5, 2, 9, 1]\nfor i in range(1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[1, 5, 2, 9, 7]", "choices": ["[7, 5, 2, 9, 1]", "[1, 2, 5, 9, 7]", "[1, 2, 5, 7, 9]", "[1, 5, 2, 9, 7]"], "explanation": "Бірінші өтім нәтижесі: [1, 5, 2, 9, 7]"}, {"topic": "1-өтімнің нәтижесі", "code": "a = [8, 4, 6, 3, 2]\nfor i in range(1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Бірінші толық өтімнен кейін a қандай болады?", "answer": "[2, 4, 6, 3, 8]", "choices": ["[2, 4, 6, 3, 8]", "[2, 3, 6, 4, 8]", "[2, 3, 4, 6, 8]", "[8, 4, 6, 3, 2]"], "explanation": "Бірінші өтім нәтижесі: [2, 4, 6, 3, 8]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [5, 1, 7, 4, 2]\nfor i in range(2):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[1, 2, 7, 4, 5]", "choices": ["[1, 2, 4, 5, 7]", "[5, 1, 7, 4, 2]", "[1, 2, 7, 4, 5]", "[1, 5, 7, 4, 2]"], "explanation": "Екінші өтім нәтижесі: [1, 2, 7, 4, 5]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [3, 9, 2, 8, 6]\nfor i in range(2):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[2, 3, 9, 8, 6]", "choices": ["[2, 9, 3, 8, 6]", "[2, 3, 6, 8, 9]", "[2, 3, 9, 8, 6]", "[3, 9, 2, 8, 6]"], "explanation": "Екінші өтім нәтижесі: [2, 3, 9, 8, 6]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [6, 4, 9, 1, 5]\nfor i in range(2):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[1, 4, 9, 6, 5]", "choices": ["[6, 4, 9, 1, 5]", "[1, 4, 5, 6, 9]", "[1, 4, 9, 6, 5]", "[4, 1, 9, 6, 5]"], "explanation": "Екінші өтім нәтижесі: [1, 4, 9, 6, 5]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [8, 2, 7, 3, 1]\nfor i in range(2):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[1, 2, 7, 3, 8]", "choices": ["[1, 2, 3, 7, 8]", "[8, 2, 7, 3, 1]", "[2, 1, 7, 3, 8]", "[1, 2, 7, 3, 8]"], "explanation": "Екінші өтім нәтижесі: [1, 2, 7, 3, 8]"}, {"topic": "2-өтімнің нәтижесі", "code": "a = [4, 7, 5, 2, 9]\nfor i in range(2):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Екінші толық өтімнен кейін a қандай болады?", "answer": "[2, 4, 5, 7, 9]", "choices": ["[2, 4, 5, 7, 9]", "[4, 2, 5, 7, 9]", "[4, 7, 5, 2, 9]", "[2, 7, 5, 4, 9]"], "explanation": "Екінші өтім нәтижесі: [2, 4, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [6, 2, 5, 1, 4]\nfor i in range(len(a)-1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 2, 4, 5, 6]", "choices": ["[1, 2, 4, 5, 6]", "[6, 5, 4, 2, 1]", "[6, 2, 5, 1, 4]", "[1, 2, 5, 6, 4]"], "explanation": "Өсу ретімен: [1, 2, 4, 5, 6]"}, {"topic": "Толық сұрыптау", "code": "a = [9, 3, 7, 2, 5]\nfor i in range(len(a)-1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[2, 3, 5, 7, 9]", "choices": ["[2, 3, 5, 7, 9]", "[9, 3, 7, 2, 5]", "[9, 7, 5, 3, 2]", "[2, 3, 7, 9, 5]"], "explanation": "Өсу ретімен: [2, 3, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [4, 8, 1, 6, 3]\nfor i in range(len(a)-1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 3, 4, 6, 8]", "choices": ["[1, 8, 4, 6, 3]", "[4, 8, 1, 6, 3]", "[1, 3, 4, 6, 8]", "[8, 6, 4, 3, 1]"], "explanation": "Өсу ретімен: [1, 3, 4, 6, 8]"}, {"topic": "Толық сұрыптау", "code": "a = [7, 5, 2, 9, 1]\nfor i in range(len(a)-1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[1, 2, 5, 7, 9]", "choices": ["[1, 2, 5, 7, 9]", "[1, 5, 2, 9, 7]", "[1, 2, 5, 9, 7]", "[7, 5, 2, 9, 1]"], "explanation": "Өсу ретімен: [1, 2, 5, 7, 9]"}, {"topic": "Толық сұрыптау", "code": "a = [8, 4, 6, 3, 2]\nfor i in range(len(a)-1):\n    m = i\n    for j in range(i+1,len(a)):\n        if a[j] < a[m]:\n            m = j\n    a[i], a[m] = a[m], a[i]\nprint(a)", "question": "Сұрыптау аяқталғандағы нәтиже?", "answer": "[2, 3, 4, 6, 8]", "choices": ["[8, 4, 6, 3, 2]", "[2, 3, 4, 6, 8]", "[2, 3, 6, 4, 8]", "[2, 4, 6, 3, 8]"], "explanation": "Өсу ретімен: [2, 3, 4, 6, 8]"}, {"topic": "Кодты талдау", "code": "m = i\nfor j in range(i+1, n):\n    if a[j] < a[m]:\n        m = j", "question": "m айнымалысы нені сақтайды?", "answer": "Ең кіші элементтің индексін", "choices": ["Көршілес элемент санын", "Өтім санын", "Ең үлкен элементтің мәнін", "Ең кіші элементтің индексін"], "explanation": "Дұрыс: Ең кіші элементтің индексін"}, {"topic": "Кодты талдау", "code": "a = [5, 2, 4]\nm = a.index(min(a))\na[0], a[m] = a[m], a[0]\nprint(a)", "question": "Бірінші таңдаудан кейін нәтиже қандай?", "answer": "[2, 5, 4]", "choices": ["[5, 2, 4]", "[4, 2, 5]", "[2, 4, 5]", "[2, 5, 4]"], "explanation": "Дұрыс: [2, 5, 4]"}, {"topic": "Кодты талдау", "code": "for i in range(n-1):\n    m = i\n    for j in range(i+1,n):", "question": "n=5 болса, сыртқы цикл неше рет орындалады?", "answer": "4", "choices": ["3", "4", "10", "5"], "explanation": "Дұрыс: 4"}, {"topic": "Кодты талдау", "code": "m = i\nfor j in range(i+1, n):\n    if a[j] < a[m]: m = j\na[i], a[m] = a[m], a[i]", "question": "Өтім соңында қай элементтер алмасады?", "answer": "i орнындағы және ең кіші элемент", "choices": ["i орнындағы және ең кіші элемент", "Әр екі көрші элемент", "Бірінші және соңғы элемент", "Кездейсоқ екі элемент"], "explanation": "Дұрыс: i орнындағы және ең кіші элемент"}, {"topic": "Кодты талдау", "code": "a = [3, 1, 2]\nm = 0\nfor j in range(1,len(a)):\n    if a[j] < a[m]:\n        m = j\na[0], a[m] = a[m], a[0]\nprint(a)", "question": "Бірінші өтімнен кейін массив қандай?", "answer": "[1, 3, 2]", "choices": ["[3, 1, 2]", "[1, 2, 3]", "[1, 3, 2]", "[2, 1, 3]"], "explanation": "Дұрыс: [1, 3, 2]"}];
+const theory = {
+strings:`<h2>Негізгі ереже</h2><p><b>count(x)</b> — жол ішіндегі x неше рет кездесетінін санайды. <b>find(x)</b> — x алғаш кездескен индексін табады (табылмаса <code>-1</code>). <b>strip()</b> — жолдың басы мен соңындағы бос орындарды жояды.</p><p><b>count(x,i,j)</b>, <b>find(x,i,j)</b> — іздеуді i индексінен бастап, j индексіне жетпей орындайды.</p><pre>s = 'starlight'
+print(s.count('t')) # 2
+print(s.find('light')) # 4
+print('  moon  '.strip()) # moon</pre><p class="note">Индекстеу 0-ден басталады. <code>strip()</code> жолдың ортасындағы бос орынды өшірмейді.</p>`,
+bubble:`<h2>Bubble Sort — көпіршік сұрыптау</h2><p><b>Негізгі ереже:</b> массивтегі көршілес екі сан салыстырылады. Егер сол жақтағы сан оң жақтағыдан үлкен болса, орындары ауысады. Әр толық өтімнен кейін сол аралықтың ең үлкен саны оң жақ шетіне барады.</p><div class="note"><b>Кодтан тану:</b> <code>a[j] &gt; a[j+1]</code> және <code>a[j], a[j+1] = a[j+1], a[j]</code> — Bubble Sort-тың басты белгілері.</div><h3>Python коды</h3><pre>a = [5, 2, 4, 1]
+n = len(a)
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]
+print(a)  # [1, 2, 4, 5]</pre><h3>Айналымдардың толық түсіндірмесі</h3><p>«Келесі салыстыру» батырмасымен әр қадамды, ал төмендегі ашылатын бөлімдерден барлық айналымды көріңіз.</p><div id="bubbleSteps"></div><p><b>Уақыт күрделілігі:</b> осы қарапайым нұсқада O(n²). Көршілес ауыстыру бірнеше рет жасалуы мүмкін.</p>`,
+selection:`<h2>Selection Sort — таңдау арқылы сұрыптау</h2><p><b>Негізгі ереже:</b> сұрыпталмаған бөліктен ең кіші санды іздейміз. Оны сол бөліктің бірінші орнындағы санмен алмастырамыз. Келесі өтімде қалған бөліктің ең кішісін таңдаймыз.</p><div class="note"><b>Кодтан тану:</b> <code>min_idx = i</code>, <code>if a[j] &lt; a[min_idx]</code>, өтім соңында <code>a[i], a[min_idx] = ...</code> — Selection Sort белгілері.</div><h3>Python коды</h3><pre>a = [5, 2, 4, 1]
+n = len(a)
+for i in range(n - 1):
+    min_idx = i
+    for j in range(i + 1, n):
+        if a[j] < a[min_idx]:
+            min_idx = j
+    a[i], a[min_idx] = a[min_idx], a[i]
+print(a)  # [1, 2, 4, 5]</pre><h3>Айналымдардың толық түсіндірмесі</h3><p>«Келесі салыстыру» батырмасымен ең кіші санның қалай таңдалатынын көріңіз.</p><div id="selectionSteps"></div><p><b>Уақыт күрделілігі:</b> O(n²). Әр өтімде ең кіші сан таңдалып, әдетте бір алмасу жасалады.</p>`};
+const names={strings:'Жолдық әдістер',bubble:'Bubble Sort — көпіршік сұрыптау',selection:'Selection Sort — таңдау арқылы сұрыптау'};
+const $=id=>document.getElementById(id);const banks={strings:STRINGS_BANK,bubble:BUBBLE_BANK,selection:SELECTION_BANK};let selected='strings',session=null;
+function show(s){for(const id of ['home','topic','quiz','results'])$(id).classList.toggle('hidden',s!==id);window.scrollTo(0,0)}
+function goHome(){show('home')}
+function escapeHtml(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function traceSort(input,kind,limit){
+ const a=[...input], passes=[],frames=[{a:[...a],title:'Бастапқы массив',pass:0,active:[]}];
+ for(let i=0;i<a.length-1&&(limit===undefined||i<limit);i++){
+  const pass={number:i+1,lines:[],start:[...a]};
+  if(kind==='bubble'){
+   for(let j=0;j<a.length-1-i;j++){
+    const x=a[j],y=a[j+1],swap=x>y,beforeArray=[...a];
+    if(swap)[a[j],a[j+1]]=[a[j+1],a[j]];
+    const line={text:`${j+1}-салыстыру: ${x} > ${y} → ${swap?'иә, орындарын ауыстырамыз':'жоқ, ауыстырмаймыз'}`,a:[...a],before:beforeArray,after:[...a],left:x,right:y,operator:'>',active:[j,j+1],swap};
+    pass.lines.push(line);frames.push({a:[...a],title:`${i+1}-айналым · ${line.text}`,pass:i+1,active:[j,j+1]});
+   }
+  }else{
+   let m=i;
+   for(let j=i+1;j<a.length;j++){
+    const x=a[j],y=a[m],smaller=x<y,beforeArray=[...a];
+    const before=m;
+    if(smaller)m=j;
+    const line={text:`${j-i}-салыстыру: ${x} < ${y} → ${smaller?'иә, жаңа ең кіші сан '+x:'жоқ, ең кіші сан '+a[m]+' болып қалады'}`,a:[...a],before:beforeArray,after:[...a],left:x,right:y,operator:'<',active:[j,before],minimum:m,smaller,swap:false};
+    pass.lines.push(line);frames.push({a:[...a],title:`${i+1}-айналым · ${line.text}`,pass:i+1,active:[j,m],minimum:m});
+   }
+   const left=a[i],small=a[m],beforeSwap=[...a];[a[i],a[m]]=[a[m],a[i]];
+   pass.lines.push({text:`Ең кіші сан ${small}; ${i+1}-орындағы ${left} санымен ${i===m?'орны өзгермейді':'алмастырылады'}`,a:[...a],before:beforeSwap,after:[...a],left:left,right:small,operator:'↔',active:[i,m],swap:i!==m,finalSwap:true});
+   frames.push({a:[...a],title:`${i+1}-айналым · Ең кіші санды орнына қою`,pass:i+1,active:[i,m]});
+  }
+  pass.end=[...a];passes.push(pass);
+  frames.push({a:[...a],title:`${i+1}-айналымның қорытындысы`,pass:i+1,active:[],fixed:i+1});
+ }
+ return {passes,frames,final:[...a]};
+}
+function tileTrace(a,active=[],fixed=0,kind='bubble',minimum=-1){return '<div class="step">'+a.map((v,i)=>`<span class="tile ${active.includes(i)?'active':''} ${minimum===i?'minimum':''} ${kind==='bubble'?(i>=a.length-fixed?'fixed':''):(i<fixed?'fixed':'')}">${escapeHtml(v)}</span>`).join('')+'</div>'}
+let visualizers={};
+function drawTrace(id,kind,data){
+ const root=$(id);if(!root)return;root.replaceChildren();
+ const intro=document.createElement('p');intro.className='note';intro.innerHTML=kind==='bubble'
+  ? '<b>Оқу тәсілі:</b> әр қадамда екі көрші санды қараймыз. Сол жақ үлкен болса, бірден ауыстырамыз. <b>Төменде 1-айналым ашық тұр.</b>'
+  : '<b>Оқу тәсілі:</b> әр салыстыруда ең кіші санды есте сақтаймыз. <b>Массив іздеу кезінде өзгермейді!</b> Тек айналымның соңында ең кішісін алғашқы орынға ауыстырамыз. <b>Төменде 1-айналым ашық тұр.</b>';
+ root.append(intro);
+ const main=document.createElement('div');main.className='trace-panel';
+ const counter=document.createElement('p');counter.className='trace-progress';
+ const title=document.createElement('p');title.className='trace-caption';
+ const view=document.createElement('div');
+ const explanation=document.createElement('div');explanation.className='trace-explain';
+ const controls=document.createElement('div');controls.className='trace-controls';
+ const previous=document.createElement('button'),next=document.createElement('button'),reset=document.createElement('button');
+ previous.type=next.type=reset.type='button';previous.className=next.className=reset.className='btn secondary';previous.textContent='← Алдыңғы қадам';next.textContent='Келесі салыстыру →';reset.textContent='Қайта бастау';
+ controls.append(previous,next,reset);main.append(counter,title,view,explanation,controls);root.append(main);
+ let pos=0;function renderFrame(){
+  const f=data.frames[pos];counter.textContent=`Қадам ${pos} / ${data.frames.length-1}`;
+  title.textContent=f.title;view.innerHTML=tileTrace(f.a,f.active,f.fixed||0,kind,f.minimum);
+  const pass=data.passes.find(p=>p.number===f.pass);
+  let line=null;if(pass){line=pass.lines.find(x=>x.text&&f.title.includes(x.text));}
+  if(line){explanation.innerHTML=`<b>Салыстыру: ${escapeHtml(line.left)} ${escapeHtml(line.operator)} ${escapeHtml(line.right)}</b><div>Дейін: <code>[${line.before.join(', ')}]</code></div><div>${kind==='bubble'?(line.swap?'Иә, сол жақ үлкен → екі санның орнын ауыстырамыз.':'Жоқ, сол жақ үлкен емес → ауыстырмаймыз.'):(line.finalSwap?(line.swap?'Ең кіші сан табылды → орнына ауыстырамыз.':'Ең кіші сан өз орнында → ауыстырмаймыз.'):(line.smaller?'Жаңа ең кіші санды есте сақтаймыз; массив өзгермейді.':'Ең кіші сан өзгермейді; массив өзгермейді.'))}</div><div>Кейін: <code>[${line.after.join(', ')}]</code></div>`}
+  else explanation.textContent=pos===0?'Мына массивтен бастаймыз. «Келесі салыстыру» батырмасын басыңыз.':`Айналым аяқталды. Нәтиже: [${f.a.join(', ')}]`;
+  previous.disabled=pos===0;next.disabled=pos===data.frames.length-1;
+ }
+ previous.onclick=()=>{pos=Math.max(0,pos-1);renderFrame()};next.onclick=()=>{pos=Math.min(data.frames.length-1,pos+1);renderFrame()};reset.onclick=()=>{pos=0;renderFrame()};renderFrame();
+ const heading=document.createElement('h3');heading.textContent='📋 Әр айналымның толық кестесі — ашып қараңыз';root.append(heading);
+ for(const pass of data.passes){
+  const details=document.createElement('details');details.className='trace-pass';details.open=pass.number===1;
+  const summary=document.createElement('summary');summary.textContent=`${pass.number}-айналым: [${pass.start.join(', ')}] → [${pass.end.join(', ')}]`;
+  details.append(summary);
+  const expl=document.createElement('p');expl.textContent=kind==='bubble'?`${pass.number}-айналымда көрші сандарды ретімен салыстырамыз.`:`${pass.number}-айналымда ең кіші санды іздеп, соңында ғана ауыстырамыз.`;details.append(expl);
+  const scroll=document.createElement('div');scroll.className='compare';
+  const table=document.createElement('table');table.className='trace-table';
+  table.innerHTML='<thead><tr><th>Қадам</th><th>Бастапқы массив</th><th>Салыстыру</th><th>Неге?</th><th>Нәтиже</th></tr></thead>';
+  const body=document.createElement('tbody');
+  pass.lines.forEach((line,i)=>{
+   const tr=document.createElement('tr');
+   let reason;
+   if(kind==='bubble')reason=line.swap?'Сол жақ үлкен: орын ауысады':'Сол жақ үлкен емес: орын ауыспайды';
+   else if(line.finalSwap)reason=line.swap?'Ең кіші сан бірінші бос орынға қойылады':'Ең кіші сан өз орнында';
+   else reason=line.smaller?'Жаңа ең кіші сан табылды, бірақ әзірге ауыстырмаймыз':'Алдыңғы ең кіші сан сақталады, ауыстыру жоқ';
+   const cells=[String(i+1),`[${line.before.join(', ')}]`,`${line.left} ${line.operator} ${line.right}`,reason,`[${line.after.join(', ')}]`];
+   cells.forEach((value,idx)=>{const td=document.createElement('td');td.textContent=value;if(idx===4)td.className='trace-result';tr.append(td)});
+   body.append(tr);
+  });
+  table.append(body);scroll.append(table);details.append(scroll);
+  const end=document.createElement('div');end.className='trace-summary';end.textContent=`✅ ${pass.number}-айналым нәтижесі: [${pass.end.join(', ')}]`;
+  details.append(end);root.append(details);
+ }
+}
+
+function steps(id,kind){drawTrace(id,kind,traceSort([5,2,4,1],kind))}
+function questionTrace(q){
+ if(selected!=='bubble'&&selected!=='selection')return null;
+ const match=(q.code||'').match(/a\s*=\s*\[([\d,\s-]+)\]/);
+ if(!match)return null;
+ const nums=match[1].split(',').map(x=>Number(x.trim()));
+ if(nums.some(x=>!Number.isFinite(x))||nums.length>12||nums.length<2)return null;
+ let limit;
+ if(q.topic==='1-өтімнің нәтижесі')limit=1;
+ else if(q.topic==='2-өтімнің нәтижесі')limit=2;
+ else if(q.topic==='Толық сұрыптау')limit=undefined;
+ else if((q.code||'').includes('a[0], a[1]'))return null;
+ else if((q.code||'').includes('min(a)'))limit=1;
+ else if(q.topic==='Кодты талдау'&&q.code.includes('1 өтім'))limit=1;
+ else return null;
+ return traceSort(nums,selected,limit);
+}
+function openTopic(id){selected=id;$('topicTitle').textContent=names[id];$('topicCount').textContent=banks[id].length+' тест';$('theory').innerHTML=theory[id];if(id==='bubble')steps('bubbleSteps','bubble');if(id==='selection')steps('selectionSteps','selection');show('topic')}
+function shuffled(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a}
+function startQuiz(ev){ev.preventDefault();let name=$('studentName').value.trim(),cls=$('studentClass').value.trim();if(!name||!cls)return;session={name,cls,date:new Date().toISOString(),questions:shuffled(banks[selected]).map(q=>({...q,choices:shuffled(q.choices)})),answers:{},index:0};show('quiz');render()}
+function render(){if(!session)return;let q=session.questions[session.index],num=session.index+1,total=session.questions.length; $('quizTopic').textContent=names[selected];$('quizStudent').textContent=session.name+' • '+session.cls;$('quizProgress').textContent='Орындалғаны: '+Object.keys(session.answers).length+' / '+total;$('fill').style.width=(Object.keys(session.answers).length/total*100)+'%';$('qNumber').textContent=num+'-сұрақ / '+total;$('qPrompt').textContent=q.question||'Кодтың нәтижесі қандай?';$('qCode').textContent=q.code;const list=$('qOptions');list.replaceChildren();q.choices.forEach(choice=>{const label=document.createElement('label');label.className='option';const inp=document.createElement('input');inp.type='radio';inp.name='answer';inp.value=choice;inp.checked=session.answers[session.index]===choice;inp.addEventListener('change',()=>{session.answers[session.index]=choice;render()});label.append(inp,document.createTextNode(choice));list.append(label)})}
+function move(step){if(!session)return;session.index=Math.max(0,Math.min(session.questions.length-1,session.index+step));render()}
+function explain(q){
+ const c=q.code||'';
+ if(q.explanation) return q.explanation+' Себебі: '+(selected==='bubble'?'Bubble Sort әр өтімде көрші жұптарды салыстырып, қажет болса орындарын ауыстырады.':'Selection Sort сұрыпталмаған бөліктен ең кіші элементті таңдайды.');
+ if(c.includes('.count(')) return 'count() көрсетілген таңбаның не бөліктің қанша рет кездесетінін санайды; i мен j берілсе, j индексі есепке кірмейді.';
+ if(c.includes('.find(')) return 'find() табылған бөліктің алғашқы индексін қайтарады. Индекстер 0-ден басталады, ізделген бөлік табылмаса -1 шығады.';
+ if(c.includes('.strip(')) return 'strip() тек жолдың басы мен соңын тазалайды. len() қалған таңбалар санын есептейді.';
+ return 'Кодты жол-жолымен орындап, айнымалылардың әр қадамдағы мәндерін салыстырыңыз.';
+}
+function renderReview(filter='wrong'){
+ if(!session||!session.end)return;
+ const bad=session.questions.filter((q,i)=>session.answers[i]!==q.answer).length;
+ const good=session.questions.length-bad;
+ $('reviewSummary').textContent=`Дұрыс: ${good} · Қате: ${bad}. ${bad?'Қате сұрақтарды қарап, неге дұрыс жауап басқаша екенін түсініңіз.':'Барлығы дұрыс! Өте жақсы.'}`;
+ for (const [id,v] of [['wrongTab','wrong'],['allTab','all'],['rightTab','right']]) $(id).classList.toggle('active',v===filter);
+ const root=$('review');root.replaceChildren();
+ session.questions.forEach((q,i)=>{
+  const correct=session.answers[i]===q.answer;
+  if((filter==='wrong'&&correct)||(filter==='right'&&!correct))return;
+  const block=document.createElement('article');block.className='answer '+(correct?'right':'wrong');
+  const h=document.createElement('b');h.textContent=(correct?'✅ ':'❌ ')+(i+1)+'-сұрақ: '+(q.question||'Кодтың нәтижесі қандай?');
+  const code=document.createElement('pre');code.className='review-code';code.textContent=q.code;
+  const chosen=document.createElement('p');chosen.className='review-detail '+(correct?'good':'bad');chosen.textContent='Оқушы жауабы: '+session.answers[i]+(correct?' — дұрыс':' — қате');
+  const right=document.createElement('p');right.className='review-detail good';right.textContent='Дұрыс жауап: '+q.answer;
+  const e=document.createElement('div');e.className='review-explain';e.textContent='💡 Түсіндіру: '+explain(q);
+  block.append(h,code,chosen,right,e);
+  const trace=questionTrace(q);
+  if(trace){const label=document.createElement('h4');label.textContent='🔎 1-айналым, 2-айналым және салыстыру қадамдары';block.append(label);const traceEl=document.createElement('div');traceEl.id='reviewTrace'+i;block.append(traceEl);root.append(block);drawTrace(traceEl.id,selected,trace);}
+  else root.append(block);
+ });
+ if(!root.childElementCount){const p=document.createElement('p');p.className='note';p.textContent=filter==='wrong'?'Қате жауап жоқ. Барлық тапсырма дұрыс орындалған!':'Бұл санатта жауап жоқ.';root.append(p)}
+ $('retryWrongBtn').disabled=bad===0;
+}
+function retryWrong(){
+ if(!session?.end)return;
+ const questions=session.questions.filter((q,i)=>session.answers[i]!==q.answer);
+ if(!questions.length)return;
+ session={name:session.name,cls:session.cls,date:new Date().toISOString(),questions:shuffled(questions).map(q=>({...q,choices:shuffled(q.choices)})),answers:{},index:0,practice:true};
+ show('quiz');render();
+}
+function finishQuiz(){
+ if(!session)return;
+ const missing=session.questions.findIndex((_,i)=>session.answers[i]===undefined);
+ if(missing!==-1){alert('Барлық сұраққа жауап беріңіз. Қалғаны: '+(session.questions.length-Object.keys(session.answers).length));session.index=missing;render();return;}
+ session.end=new Date().toISOString();session.score=session.questions.reduce((s,q,i)=>s+Number(session.answers[i]===q.answer),0);
+ $('score').textContent=session.score+' / '+session.questions.length;
+ $('resultInfo').textContent=session.name+' • '+session.cls+' • '+names[selected]+(session.practice?' • Қатемен жұмыс (қайта орындау)':'');
+ try{localStorage.setItem('python_quiz_latest_'+selected,JSON.stringify({name:session.name,cls:session.cls,score:session.score,total:session.questions.length,date:session.end}));}catch(e){}
+ show('results');renderReview('wrong');
+}
+function downloadCSV(){if(!session?.end)return;const rows=[['Тақырып','Аты-жөні','Сыныбы','Ұпай','Барлығы','Уақыты'],[names[selected],session.name,session.cls,session.score,session.questions.length,session.end],[],['№','Тапсырма','Код','Жауап','Дұрыс жауап','Балл']];session.questions.forEach((q,i)=>rows.push([i+1,q.question||'Код нәтижесі',q.code,session.answers[i],q.answer,Number(session.answers[i]===q.answer)]));const content='﻿'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const blob=new Blob([content],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='python_'+selected+'_natizhe.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+</script></body></html>
